@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Dishu ❤️🎂</title>
+  <meta name="description" content="A magical birthday surprise for Dishu – an interactive cinematic celebration filled with love, joy, and happiness." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background layers -->
+  <div id="bg-overlay" class="bg-overlay"></div>
+  <div id="stars-container" class="stars-container"></div>
+  <div id="fireflies-container" class="fireflies-container"></div>
+  <div id="fireworks-container" class="fireworks-container"></div>
+
+  <!-- Scene 1: Dark Room -->
+  <section id="scene-dark" class="scene active">
+    <div class="dark-room-content">
+      <div class="glow-hint">✨ Tap the button to begin ✨</div>
+    </div>
+  </section>
+
+  <!-- Decorative Lights (top wire + bulbs) -->
+  <div class="lights-wire" id="lights-wire">
+    <div class="wire-line"></div>
+    <div class="bulbs-row" id="bulbs-row"></div>
+  </div>
+
+  <!-- Vine decoration -->
+  <div id="vine-decor" class="vine-decor">
+    <img src="vine.png" alt="vine" class="vine-img vine-left" />
+    <img src="vine.png" alt="vine" class="vine-img vine-right" />
+  </div>
+
+  <!-- Balloon border at top -->
+  <div id="balloon-border-wrapper" class="balloon-border-wrapper">
+    <img src="Balloon-Border.png" alt="balloon border" class="balloon-border-img" />
+  </div>
+
+  <!-- Banner -->
+  <div id="banner-wrapper" class="banner-wrapper">
+    <img src="banner.png" alt="Happy Birthday Banner" class="banner-img" />
+  </div>
+
+  <!-- Balloons, confetti, streamers (global overlay containers) -->
+  <div id="balloons-container" class="balloons-container"></div>
+  <div id="confetti-container" class="confetti-container"></div>
+  <div id="streamers-container" class="streamers-container"></div>
+
+  <!-- Happy Birthday text -->
+  <div id="happy-birthday-text" class="happy-birthday-text">
+    <span class="hb-emoji">🎉</span>
+    <span class="hb-main">Happy Birthday</span>
+    <span class="hb-emoji">🎉</span>
+  </div>
+
+  <!-- Cake -->
+  <div id="cake-wrapper" class="cake-wrapper">
+    <div class="cake-css" id="cake-css">
+      <div class="candles-row" id="candles-row">
+        <div class="candle candle-pink"><div class="flame"><div class="flame-inner"></div></div></div>
+        <div class="candle candle-blue"><div class="flame"><div class="flame-inner"></div></div></div>
+        <div class="candle candle-gold"><div class="flame"><div class="flame-inner"></div></div></div>
+        <div class="candle candle-pink"><div class="flame"><div class="flame-inner"></div></div></div>
+        <div class="candle candle-blue"><div class="flame"><div class="flame-inner"></div></div></div>
+      </div>
+      <div class="cake-top-plate"></div>
+      <div class="cake-layer cake-layer-1">
+        <div class="drip drip-1"></div>
+        <div class="drip drip-2"></div>
+        <div class="drip drip-3"></div>
+        <div class="drip drip-4"></div>
+        <div class="cake-flower cf-1">🌸</div>
+        <div class="cake-flower cf-2">🌺</div>
+        <div class="cake-star cs-1">⭐</div>
+      </div>
+      <div class="cake-layer cake-layer-2">
+        <div class="drip drip-5"></div>
+        <div class="drip drip-6"></div>
+        <div class="drip drip-7"></div>
+        <div class="cake-flower cf-3">🌷</div>
+        <div class="cake-star cs-3">⭐</div>
+      </div>
+      <div class="cake-layer cake-layer-3">
+        <div class="drip drip-8"></div>
+        <div class="drip drip-9"></div>
+        <div class="cake-flower cf-4">🌸</div>
+        <div class="cake-star cs-5">✨</div>
+      </div>
+      <div class="cake-base"></div>
+    </div>
+  </div>
+
+  <!-- Heart Balloon -->
+  <div id="heart-balloon" class="heart-balloon">
+    <div class="heart-shape">
+      <div class="heart-text">Happy Birthday<br />Dishu ❤️</div>
+    </div>
+    <div class="heart-string"></div>
+  </div>
+
+  <!-- Message Card -->
+  <div id="message-card" class="message-card">
+    <div class="card-glow"></div>
+    <div class="card-content">
+      <div class="msg-line" data-delay="0">Happy Birthday Dishu ❤️</div>
+      <div class="msg-line" data-delay="2500">Today is all about celebrating the wonderful person you are.</div>
+      <div class="msg-line" data-delay="5000">Your smile brings happiness to everyone around you.</div>
+      <div class="msg-line" data-delay="7500">May every dream in your heart come true.</div>
+      <div class="msg-line" data-delay="10000">May your life always be filled with love, success, laughter, and endless joy.</div>
+      <div class="msg-line" data-delay="12500">Thank you for being such an amazing person.</div>
+      <div class="msg-line" data-delay="15000">Keep smiling. ✨</div>
+      <div class="msg-line" data-delay="17500">Keep shining. 🌟</div>
+      <div class="msg-line" data-delay="20000">Keep believing in yourself. 💖</div>
+      <div class="msg-line" data-delay="22500">You deserve all the happiness in this world.</div>
+      <div class="msg-line" data-delay="25000">Happy Birthday once again ❤️🎂🎉</div>
+    </div>
+  </div>
+
+  <!-- Final Surprise -->
+  <section id="scene-finale" class="scene">
+    <div class="finale-content">
+      <div class="finale-title">
+        <span>🎉</span> Happy Birthday Dishu <span>❤️</span>
+      </div>
+      <div class="finale-subtitle">
+        "May your life always be filled with happiness."
+      </div>
+    </div>
+  </section>
+
+  <!-- Buttons Container -->
+  <div id="btn-container" class="btn-container">
+    <button id="btn-lights" class="magic-btn glow-pulse" onclick="turnLightsOn()">
+      Turn the Lights On 💡
+    </button>
+    <button id="btn-decorate" class="magic-btn hidden" onclick="startDecoration()">
+      Let's Decorate 🎈
+    </button>
+    <button id="btn-music" class="magic-btn hidden" onclick="playMusic()">
+      Play Music 🎵
+    </button>
+    <button id="btn-cake" class="magic-btn hidden" onclick="showCake()">
+      Let's Get the Cake 🎂
+    </button>
+    <button id="btn-candles" class="magic-btn hidden" onclick="lightCandles()">
+      Light the Candles 🕯️
+    </button>
+    <button id="btn-message" class="magic-btn hidden" onclick="showMessage()">
+      A Message For You 💌
+    </button>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
