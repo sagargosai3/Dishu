@@ -163,6 +163,29 @@ function turnLightsOn() {
   btnLights.classList.add('hidden');
   $('scene-dark').classList.remove('active');
 
+  // Show Dishu's photo with white border
+  var photoOverlay = $('dishu-photo-overlay');
+  if (photoOverlay) {
+    photoOverlay.classList.add('visible');
+
+    // After 3.5 seconds, fade out photo and continue with lights
+    setTimeout(function() {
+      photoOverlay.classList.add('fade-out');
+      photoOverlay.classList.remove('visible');
+
+      // After photo fades, start lights scene
+      setTimeout(function() {
+        photoOverlay.style.display = 'none';
+        startLightsScene();
+      }, 1500);
+    }, 3500);
+  } else {
+    // If no photo overlay, go straight to lights
+    startLightsScene();
+  }
+}
+
+function startLightsScene() {
   // Transition background to night sky
   bgOverlay.classList.add('night-sky');
 
