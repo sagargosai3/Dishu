@@ -163,60 +163,45 @@ function turnLightsOn() {
   btnLights.classList.add('hidden');
   $('scene-dark').classList.remove('active');
 
-  // Show Dishu's photo with white border
-  var photoOverlay = $('dishu-photo-overlay');
-  photoOverlay.classList.add('visible');
+  // Transition background to night sky
+  bgOverlay.classList.add('night-sky');
 
-  // After 3.5 seconds, fade out photo and continue with lights
+  // Generate stars
+  generateStars();
   setTimeout(function() {
-    photoOverlay.classList.add('fade-out');
-    photoOverlay.classList.remove('visible');
+    starsContainer.classList.add('visible');
+  }, 500);
 
-    // After photo fades, remove it and start lights scene
+  // Generate fireflies
+  generateFireflies();
+  setTimeout(function() {
+    firefliesContainer.classList.add('visible');
+  }, 1500);
+
+  // Show lights wire with bulb images
+  var bulbs = generateBulbs();
+
+  setTimeout(function() {
+    lightsWire.classList.add('visible');
+
+    // Light bulbs one by one
+    bulbs.forEach(function(bulb, i) {
+      setTimeout(function() {
+        bulb.classList.add('lit');
+      }, 200 + i * 200);
+    });
+
+    // Show vine decoration
     setTimeout(function() {
-      photoOverlay.style.display = 'none';
+      vineDecor.classList.add('visible');
+    }, 200 + bulbs.length * 200);
 
-      // Transition background to night sky
-      bgOverlay.classList.add('night-sky');
-
-      // Generate stars
-      generateStars();
-      setTimeout(function() {
-        starsContainer.classList.add('visible');
-      }, 500);
-
-      // Generate fireflies
-      generateFireflies();
-      setTimeout(function() {
-        firefliesContainer.classList.add('visible');
-      }, 1500);
-
-      // Show lights wire with bulb images
-      var bulbs = generateBulbs();
-
-      setTimeout(function() {
-        lightsWire.classList.add('visible');
-
-        // Light bulbs one by one
-        bulbs.forEach(function(bulb, i) {
-          setTimeout(function() {
-            bulb.classList.add('lit');
-          }, 200 + i * 200);
-        });
-
-        // Show vine decoration
-        setTimeout(function() {
-          vineDecor.classList.add('visible');
-        }, 200 + bulbs.length * 200);
-
-        // After all bulbs light up, show next button
-        setTimeout(function() {
-          btnDecorate.classList.remove('hidden');
-          btnDecorate.classList.add('glow-pulse');
-        }, 200 + bulbs.length * 200 + 1000);
-      }, 1000);
-    }, 1500);
-  }, 3500);
+    // After all bulbs light up, show next button
+    setTimeout(function() {
+      btnDecorate.classList.remove('hidden');
+      btnDecorate.classList.add('glow-pulse');
+    }, 200 + bulbs.length * 200 + 1000);
+  }, 1000);
 }
 
 // ============================================
