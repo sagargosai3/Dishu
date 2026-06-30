@@ -1188,3 +1188,101 @@ body {
 body.loaded {
   transition: background 2s ease;
 }
+
+/* ============================================
+   DISHU PHOTO REVEAL OVERLAY
+   ============================================ */
+.dishu-photo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+  pointer-events: none;
+}
+
+.dishu-photo-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dishu-photo-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+.dishu-photo-frame {
+  position: relative;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 60px rgba(255, 255, 255, 0.3),
+    0 0 100px rgba(255, 255, 255, 0.15),
+    0 0 150px rgba(200, 80, 192, 0.1),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0) rotate(-5deg);
+  transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: photoFrameGlow 3s ease-in-out infinite alternate;
+}
+
+.dishu-photo-overlay.visible .dishu-photo-frame {
+  transform: scale(1) rotate(0deg);
+}
+
+.dishu-photo-overlay.fade-out .dishu-photo-frame {
+  transform: scale(1.1) rotate(2deg);
+}
+
+@keyframes photoFrameGlow {
+  0% {
+    box-shadow:
+      0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 60px rgba(255, 255, 255, 0.3),
+      0 0 100px rgba(255, 255, 255, 0.15),
+      0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow:
+      0 0 40px rgba(255, 255, 255, 0.8),
+      0 0 80px rgba(255, 255, 255, 0.4),
+      0 0 120px rgba(255, 215, 0, 0.2),
+      0 0 180px rgba(233, 30, 144, 0.15),
+      0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.dishu-photo {
+  display: block;
+  width: min(320px, 75vw);
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .dishu-photo {
+    width: min(280px, 70vw);
+  }
+  .dishu-photo-frame {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dishu-photo {
+    width: min(240px, 80vw);
+  }
+  .dishu-photo-frame {
+    padding: 6px;
+    border-radius: 12px;
+  }
+}

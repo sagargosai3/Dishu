@@ -163,45 +163,60 @@ function turnLightsOn() {
   btnLights.classList.add('hidden');
   $('scene-dark').classList.remove('active');
 
-  // Transition background to night sky
-  bgOverlay.classList.add('night-sky');
+  // Show Dishu's photo with white border
+  var photoOverlay = $('dishu-photo-overlay');
+  photoOverlay.classList.add('visible');
 
-  // Generate stars
-  generateStars();
+  // After 3.5 seconds, fade out photo and continue with lights
   setTimeout(function() {
-    starsContainer.classList.add('visible');
-  }, 500);
+    photoOverlay.classList.add('fade-out');
+    photoOverlay.classList.remove('visible');
 
-  // Generate fireflies
-  generateFireflies();
-  setTimeout(function() {
-    firefliesContainer.classList.add('visible');
-  }, 1500);
+    // After photo fades, remove it and start lights scene
+    setTimeout(function() {
+      photoOverlay.style.display = 'none';
 
-  // Show lights wire with bulb images
-  var bulbs = generateBulbs();
+      // Transition background to night sky
+      bgOverlay.classList.add('night-sky');
 
-  setTimeout(function() {
-    lightsWire.classList.add('visible');
-
-    // Light bulbs one by one
-    bulbs.forEach(function(bulb, i) {
+      // Generate stars
+      generateStars();
       setTimeout(function() {
-        bulb.classList.add('lit');
-      }, 200 + i * 200);
-    });
+        starsContainer.classList.add('visible');
+      }, 500);
 
-    // Show vine decoration
-    setTimeout(function() {
-      vineDecor.classList.add('visible');
-    }, 200 + bulbs.length * 200);
+      // Generate fireflies
+      generateFireflies();
+      setTimeout(function() {
+        firefliesContainer.classList.add('visible');
+      }, 1500);
 
-    // After all bulbs light up, show next button
-    setTimeout(function() {
-      btnDecorate.classList.remove('hidden');
-      btnDecorate.classList.add('glow-pulse');
-    }, 200 + bulbs.length * 200 + 1000);
-  }, 1000);
+      // Show lights wire with bulb images
+      var bulbs = generateBulbs();
+
+      setTimeout(function() {
+        lightsWire.classList.add('visible');
+
+        // Light bulbs one by one
+        bulbs.forEach(function(bulb, i) {
+          setTimeout(function() {
+            bulb.classList.add('lit');
+          }, 200 + i * 200);
+        });
+
+        // Show vine decoration
+        setTimeout(function() {
+          vineDecor.classList.add('visible');
+        }, 200 + bulbs.length * 200);
+
+        // After all bulbs light up, show next button
+        setTimeout(function() {
+          btnDecorate.classList.remove('hidden');
+          btnDecorate.classList.add('glow-pulse');
+        }, 200 + bulbs.length * 200 + 1000);
+      }, 1000);
+    }, 1500);
+  }, 3500);
 }
 
 // ============================================
