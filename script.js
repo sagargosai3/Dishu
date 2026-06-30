@@ -518,6 +518,13 @@ function triggerGrandFinale() {
   // Transition background
   bgOverlay.classList.add('celebration');
 
+  // Hide the decoration "Happy Birthday" text
+  happyBirthdayText.style.transition = 'opacity 1.5s ease';
+  happyBirthdayText.style.opacity = '0';
+  setTimeout(function() {
+    happyBirthdayText.style.display = 'none';
+  }, 1600);
+
   // Hide message card slowly
   messageCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
   messageCard.style.opacity = '0';
